@@ -1,0 +1,425 @@
+<meta charset="utf-8">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>About · Quiénes somos · La Esperanza · Hope Valencia</title>
+<link rel="canonical" href="https://hopechurchvalencia.es/about.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Mulish:wght@400;500;600;700&display=swap">
+
+<style>
+  /* ---------------------------------------------------------------
+     Layout concept: a sunlit, hospitable single column rooted in Valencia.
+     A quiet tricolour rule (red/gold/blue of the Senyera) recurs as the
+     structural motif. Warm paper ground, serif headings (Spectral),
+     humanist sans body (Mulish). Trilingual identity always on view.
+  ----------------------------------------------------------------- */
+  :root {
+    --bg: #FBF6EC;        /* warm paper */
+    --surface: #FFFFFF;   /* cards */
+    --ink: #2A211D;       /* warm near-black text */
+    --muted: #6E635B;     /* warm grey text */
+    --accent: #A92731;    /* liturgical / Senyera red */
+    --gold: #C0831D;      /* Senyera gold */
+    --blue: #2E7DA1;      /* Mediterranean blue */
+    --line: #E7DECF;      /* warm hairline */
+    --btn: #A92731;       /* button ground (fixed both themes) */
+    --btn-hover: #8A1F28;
+    --on-btn: #FFFFFF;
+    --glow: rgba(192,131,29,0.16); /* hero sun glow */
+
+    --f-display: "Spectral", Georgia, "Times New Roman", serif;
+    --f-body: "Mulish", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1C1714;
+      --surface: #26201C;
+      --ink: #F2E8DB;
+      --muted: #B6A99D;
+      --accent: #ED7A82;
+      --gold: #E3A94A;
+      --blue: #6FB3D2;
+      --line: #3A312B;
+      --glow: rgba(227,169,74,0.14);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1C1714;
+    --surface: #26201C;
+    --ink: #F2E8DB;
+    --muted: #B6A99D;
+    --accent: #ED7A82;
+    --gold: #E3A94A;
+    --blue: #6FB3D2;
+    --line: #3A312B;
+    --glow: rgba(227,169,74,0.14);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--f-display); font-weight: 500; line-height: 1.12; text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  a { color: var(--accent); }
+
+  /* language toggle: show only the active language's paired elements */
+  .site[data-lang="en"] [lang="es"] { display: none; }
+  .site[data-lang="es"] [lang="en"] { display: none; }
+
+  .wrap {
+    width: 100%;
+    max-width: 68rem;
+    margin-inline: auto;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  .narrow { max-width: 46rem; }
+
+  /* recurring Senyera tricolour rule */
+  .tricolour {
+    height: 4px; width: 68px; border-radius: 4px;
+    background: linear-gradient(90deg, var(--accent) 0 33.3%, var(--gold) 33.3% 66.6%, var(--blue) 66.6% 100%);
+  }
+
+  /* ---------- header ---------- */
+  .topbar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+    z-index: 21; background: var(--bg);
+  }
+  .topbar-in {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding-block: 11px; flex-wrap: wrap;
+  }
+  .brand { display: flex; align-items: baseline; gap: 9px; min-width: 0; }
+  .brand .mark { font-family: var(--f-display); font-weight: 600; font-size: 1.22rem; color: var(--accent); letter-spacing: .2px; }
+  .brand .sub { font-size: .82rem; color: var(--muted); }
+  .controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+  .langtoggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
+  .langtoggle button {
+    font-family: var(--f-body); font-size: .8rem; font-weight: 700; letter-spacing: .3px;
+    border: 0; background: transparent; color: var(--muted); padding: 6px 13px; cursor: pointer;
+  }
+  .langtoggle button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .langtoggle button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  /* google translate holder (populates only when the GT script loads) */
+  .gt { display: flex; align-items: center; gap: 7px; }
+  .gt .gt-label { font-size: .74rem; color: var(--muted); }
+  #google_translate_element { font-size: .8rem; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(120% 80% at 50% -10%, var(--glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-in { position: relative; padding-block: clamp(46px, 9vw, 92px) clamp(40px, 7vw, 72px); text-align: center; }
+  .eyebrow { color: var(--blue); font-weight: 700; font-size: .82rem; letter-spacing: 1.4px; text-transform: uppercase; }
+  .hero h1 { font-size: clamp(2.5rem, 6.2vw, 4.4rem); font-weight: 400; margin-top: 14px; }
+  .hero h1 .alt {
+    display: block; font-size: clamp(1.05rem, 2.6vw, 1.5rem); font-weight: 400; font-style: italic;
+    color: var(--muted); margin-top: 12px; line-height: 1.4;
+  }
+  .hero .lede {
+    font-family: var(--f-display); font-size: clamp(1.15rem, 2.4vw, 1.5rem); font-weight: 300;
+    color: var(--ink); margin: 22px auto 0; max-width: 34rem;
+  }
+  .hero .tricolour { margin: 26px auto 0; }
+  .cta-row { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+  .btn {
+    font-family: var(--f-body); font-weight: 700; font-size: .96rem; text-decoration: none;
+    padding: 12px 22px; border-radius: 999px; cursor: pointer; display: inline-block; border: 1px solid transparent;
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .btn-primary { background: var(--btn); color: var(--on-btn); }
+  .btn-primary:hover { background: var(--btn-hover); }
+  .btn-ghost { background: transparent; color: var(--accent); border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--accent); }
+  .btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+  /* ---------- sections ---------- */
+  section { padding-block: clamp(21px, 3.5vw, 36px); }
+  .band { background: var(--surface); border-block: 1px solid var(--line); }
+  .sec-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; }
+  .sec-head h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
+  .lead { font-size: 1.1rem; color: var(--ink); }
+  .muted { color: var(--muted); }
+
+  .scripture {
+    font-family: var(--f-display); font-style: italic; font-weight: 400;
+    font-size: clamp(1.3rem, 3vw, 1.75rem); line-height: 1.5; color: var(--ink); max-width: 40rem;
+  }
+  .scripture cite { display: block; font-style: normal; font-family: var(--f-body); font-size: .9rem; font-weight: 700; letter-spacing: .4px; color: var(--accent); margin-top: 16px; text-transform: uppercase; }
+
+  /* two communities */
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 26px 24px; display: flex; flex-direction: column; gap: 11px; }
+  .card h3 { font-size: 1.3rem; }
+  .card .tag { font-size: .76rem; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; }
+  .card .tag.es { color: var(--gold); }
+  .card .tag.en { color: var(--blue); }
+  .card p { color: var(--muted); font-size: .98rem; }
+
+  /* times */
+  .times { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .slot { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px 20px; display: flex; flex-direction: column; gap: 6px; }
+  .slot .when { font-family: var(--f-display); font-size: 1.9rem; font-weight: 500; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .slot .what { font-weight: 700; font-size: 1rem; }
+  .slot .note { font-size: .9rem; color: var(--muted); }
+  .rotation-head { font-weight: 700; font-size: .78rem; letter-spacing: .8px; text-transform: uppercase; color: var(--muted); margin: 30px 0 12px; }
+  .rotation { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--surface); }
+  .rotation .row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 13px 20px; border-top: 1px solid var(--line); }
+  .rotation .row:first-child { border-top: 0; }
+  .rotation .ord { font-family: var(--f-display); font-size: 1.1rem; font-weight: 500; }
+  .rotation .lang { font-size: .92rem; font-weight: 700; text-align: right; }
+  .rotation .lang.bi { color: var(--accent); }
+  .rotation .lang.es { color: var(--gold); }
+  .rotation .lang.en { color: var(--blue); }
+  .times.single { grid-template-columns: minmax(0, 360px); }
+  .slot .when.sm { font-size: 1.3rem; }
+  .xnote { font-size: .92rem; color: var(--muted); margin-top: 14px; max-width: 42rem; }
+
+  /* find us + contact */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .addr { font-size: 1.08rem; line-height: 1.7; }
+  .addr .place { font-weight: 700; }
+  .copywrap { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .email { font-weight: 700; color: var(--accent); word-break: break-all; }
+  .copybtn { font-family: var(--f-body); font-size: .8rem; font-weight: 700; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 5px 13px; cursor: pointer; }
+  .copybtn:hover { border-color: var(--accent); }
+  .copybtn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  /* footer */
+  footer { padding-block: 40px; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; flex-direction: column; gap: 14px; }
+  footer p { font-size: .9rem; color: var(--muted); }
+  footer .foot-name { font-family: var(--f-display); color: var(--accent); font-size: 1.05rem; font-weight: 600; }
+
+  /* neutralise Google Translate chrome */
+  .goog-te-banner-frame, .skiptranslate iframe { display: none !important; }
+  body { top: 0 !important; }
+  .goog-te-gadget { font-family: var(--f-body) !important; font-size: 0 !important; color: transparent !important; }
+  .goog-te-gadget .goog-te-combo {
+    font-family: var(--f-body) !important; font-size: .82rem !important; color: var(--ink) !important;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; margin: 0 !important;
+  }
+  .goog-logo-link, .goog-te-gadget span { display: none !important; }
+
+  .seal { display:block; width:clamp(232px,40vw,316px); aspect-ratio:1; border-radius:50%; background:#fff; padding:9px; margin:0 auto 20px; box-shadow:0 1px 4px rgba(0,0,0,.10); }
+  .seal img { display:block; width:100%; height:100%; }
+  .iee-chip { display:inline-flex; align-self:flex-start; background:#E2E2DA; border-radius:10px; padding:11px 15px; }
+  .iee-chip img { display:block; height:52px; width:auto; }
+  @media (max-width: 760px) {
+    .cards, .times, .split { grid-template-columns: 1fr; }
+    .hero-in { text-align: left; }
+    .hero .lede, .hero .tricolour, .seal { margin-left: 0; }
+    .cta-row { justify-content: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+  /* ---------- about / pastors ---------- */
+  .mainnav { display: flex; gap: 20px; align-items: center; }
+  .mainnav a { font-family: var(--f-body); font-weight: 700; font-size: .9rem; letter-spacing: .2px; color: var(--muted); text-decoration: none; }
+  .mainnav a:hover { color: var(--accent); }
+  .mainnav a.active { color: var(--accent); }
+  .people { display: flex; flex-direction: column; gap: 20px; }
+  .pastor { display: grid; grid-template-columns: 160px 1fr; gap: 26px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px 24px; }
+  .pastor .portrait { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; background: var(--bg); border: 1px solid var(--line); display: block; }
+  .pastor .portrait.placeholder { display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-size: 3rem; color: var(--muted); }
+  .pastor .pbody { display: flex; flex-direction: column; gap: 9px; }
+  .pastor h3 { font-size: 1.4rem; }
+  .pastor .role { font-size: .8rem; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--blue); }
+  .pastor .role.es-tag { color: var(--gold); }
+  .pastor p.bio { color: var(--ink); font-size: 1rem; }
+  .pastor p.soon { color: var(--muted); font-style: italic; }
+  @media (max-width: 620px) {
+    .pastor { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .pastor .pbody { align-items: center; }
+    .mainnav { width: 100%; order: 3; justify-content: flex-start; }
+  }
+</style>
+
+<div class="site" data-lang="en">
+
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <div class="brand">
+        <a class="mark" href="/" style="text-decoration:none">La Esperanza · Hope</a>
+        <span class="sub" lang="en">Valencia</span>
+        <span class="sub" lang="es">Valencia</span>
+      </div>
+      <nav class="mainnav" aria-label="Main">
+        <a href="/" lang="en">Home</a><a href="/" lang="es">Inicio</a>
+        <a href="/about.html" class="active" lang="en">About</a><a href="/about.html" class="active" lang="es">Quiénes somos</a>
+      </nav>
+      <div class="controls">
+        <div class="gt">
+          <span class="gt-label" lang="en" hidden>Other languages</span>
+          <span class="gt-label" lang="es" hidden>Otros idiomas</span>
+          <div id="google_translate_element"></div>
+        </div>
+        <div class="langtoggle" role="group" aria-label="Language / Idioma">
+          <button type="button" data-set="en" aria-pressed="true">EN</button>
+          <button type="button" data-set="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-in narrow">
+        <span class="eyebrow" lang="en">About us</span>
+        <span class="eyebrow" lang="es">Quiénes somos</span>
+        <h1 lang="en">Our pastors</h1>
+        <h1 lang="es">Nuestros pastores</h1>
+        <p class="lede" lang="en">The people called to serve and shepherd this bilingual community in Valencia.</p>
+        <p class="lede" lang="es">Las personas llamadas a servir y pastorear esta comunidad bilingüe en Valencia.</p>
+        <div class="tricolour"></div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="people">
+
+          <article class="pastor">
+            <img class="portrait" src="https://images.squarespace-cdn.com/content/v1/62c2fc54fcfae9309818a4a3/f0b201f7-f0a0-4b6a-86d2-ccaf093e768c/IMG_0611.jpeg?format=750w" alt="Rev. Judy Davis">
+            <div class="pbody">
+              <h3>Rev. Judy Davis</h3>
+              <p class="role" lang="en">Pastor, La Siesta Evangelical Church</p>
+              <p class="role es-tag" lang="es">Pastora, Iglesia Evangélica de La Siesta</p>
+              <p class="bio" lang="en">Judy is pastor of La Siesta Evangelical Church in Torrevieja and part of the team forming this community in Valencia. An ordained minister in the Western North Carolina Conference of the United Methodist Church, she brings more than twenty years of local-church ministry, with a heart for worship, spiritual formation, and mission across cultures. For six years she served the World Council of Churches in Geneva, supporting churches' response to global hunger, and she is completing a Doctor of Ministry in Wesleyan perspectives on global mission at Wesley Theological Seminary in Washington, D.C.</p>
+              <p class="bio" lang="es">Judy es pastora de la Iglesia Evangélica de La Siesta, en Torrevieja, y forma parte del equipo que da vida a esta comunidad en Valencia. Ministra ordenada en la Conferencia de Carolina del Norte Occidental de la Iglesia Metodista Unida, aporta más de veinte años de ministerio en congregaciones locales, con especial dedicación al culto, la formación espiritual y la misión intercultural. Durante seis años sirvió en el Consejo Mundial de Iglesias en Ginebra, acompañando la respuesta de las iglesias al hambre en el mundo, y actualmente completa un Doctorado en Ministerio sobre perspectivas wesleyanas de la misión global en el Wesley Theological Seminary de Washington, D.C.</p>
+            </div>
+          </article>
+
+          <article class="pastor">
+            <div class="portrait placeholder" aria-hidden="true">E</div>
+            <div class="pbody">
+              <h3>Pastora Eva Domínguez</h3>
+              <p class="role" lang="en">Pastor, Iglesia de la Esperanza</p>
+              <p class="role es-tag" lang="es">Pastora, Iglesia de la Esperanza</p>
+              <p class="soon" lang="en">Biography and photo coming soon.</p>
+              <p class="soon" lang="es">Biografía y fotografía próximamente.</p>
+            </div>
+          </article>
+
+          <article class="pastor">
+            <div class="portrait placeholder" aria-hidden="true">&middot;</div>
+            <div class="pbody">
+              <h3 lang="en">Third pastor</h3>
+              <h3 lang="es">Tercer pastor/a</h3>
+              <p class="soon" lang="en">Name, biography and photo coming soon.</p>
+              <p class="soon" lang="es">Nombre, biografía y fotografía próximamente.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="tricolour" aria-hidden="true"></div>
+      <p class="foot-name">La Esperanza · Hope · L'Esperança</p>
+      <p lang="en">A community of the Iglesia Evangélica Española (IEE), within the Levante Presbytery. <em>Evangélica</em> here means Protestant, in the Methodist and Presbyterian tradition.</p>
+      <p lang="es">Una comunidad de la Iglesia Evangélica Española (IEE), dentro del Presbiterio de Levante, en la tradición protestante metodista y presbiteriana.</p>
+      <span class="iee-chip"><img src="data:image/jpeg;base64,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" alt="Iglesia Evangélica Española — Metodista y Presbiteriana"></span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var site = document.querySelector('.site');
+
+    // ---- language toggle ----
+    var btns = document.querySelectorAll('.langtoggle button');
+    function setLang(lang) {
+      site.setAttribute('data-lang', lang);
+      btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === lang)); });
+      document.documentElement.setAttribute('lang', lang);
+      var cb = document.getElementById('copyEmail');
+      if (cb && cb.dataset.reset !== '1') cb.textContent = cb.dataset[lang] || 'Copy';
+      try { localStorage.setItem('esperanza-lang', lang); } catch (e) {}
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.set); }); });
+    // default language: a saved manual choice wins; otherwise pick from the domain
+    var saved = null;
+    try { saved = localStorage.getItem('esperanza-lang'); } catch (e) {}
+    var host = (location.hostname || '').toLowerCase();
+    var domainDefault = host.indexOf('esperanza') !== -1 ? 'es'
+                      : host.indexOf('hope') !== -1 ? 'en' : 'en';
+    setLang((saved === 'es' || saved === 'en') ? saved : domainDefault);
+
+    // ---- copy email ----
+    var cb = document.getElementById('copyEmail');
+    if (cb) {
+      cb.addEventListener('click', function () {
+        var email = 'hola@laesperanzavalencia.es';
+        var done = function () {
+          cb.dataset.reset = '1';
+          cb.textContent = (site.getAttribute('data-lang') === 'es') ? '¡Copiado!' : 'Copied!';
+          setTimeout(function () {
+            cb.dataset.reset = '';
+            cb.textContent = cb.dataset[site.getAttribute('data-lang')] || 'Copy';
+          }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(done).catch(function () {
+            var r = document.createRange(); r.selectNode(document.querySelector('.email'));
+            var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done();
+          });
+        } else {
+          var r = document.createRange(); r.selectNode(document.querySelector('.email'));
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done();
+        }
+      });
+    }
+
+    // ---- Google Translate (loads on the live site; may be blocked in a sandboxed preview) ----
+    window.googleTranslateElementInit = function () {
+      try {
+        new google.translate.TranslateElement(
+          { pageLanguage: 'en',
+            includedLanguages: 'en,es,ca,pt,fr,de,uk,nl,it,ro,ru,sv,no,da,pl',
+            autoDisplay: false },
+          'google_translate_element');
+      } catch (e) {}
+    };
+    // reveal the "Other languages" label only once the widget actually renders
+    var tries = 0;
+    var poll = setInterval(function () {
+      tries++;
+      if (document.querySelector('#google_translate_element .goog-te-combo')) {
+        document.querySelectorAll('.gt-label').forEach(function (el) { el.hidden = false; });
+        clearInterval(poll);
+      } else if (tries > 25) { clearInterval(poll); }
+    }, 200);
+    var gs = document.createElement('script');
+    gs.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    gs.async = true;
+    document.body.appendChild(gs);
+  })();
+</script>

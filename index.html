@@ -224,6 +224,11 @@
 
   .seal { display:block; width:clamp(232px,40vw,316px); aspect-ratio:1; border-radius:50%; background:#fff; padding:9px; margin:0 auto 20px; box-shadow:0 1px 4px rgba(0,0,0,.10); }
   .seal img { display:block; width:100%; height:100%; }
+  .mainnav { display: flex; gap: 20px; align-items: center; }
+  .mainnav a { font-family: var(--f-body); font-weight: 700; font-size: .9rem; letter-spacing: .2px; color: var(--muted); text-decoration: none; }
+  .mainnav a:hover { color: var(--accent); }
+  .mainnav a.active { color: var(--accent); }
+  @media (max-width: 760px) { .mainnav { width: 100%; order: 3; justify-content: flex-start; } }
   .iee-chip { display:inline-flex; align-self:flex-start; background:#E2E2DA; border-radius:10px; padding:11px 15px; }
   .iee-chip img { display:block; height:52px; width:auto; }
   @media (max-width: 760px) {
@@ -242,10 +247,14 @@
   <header class="topbar">
     <div class="wrap topbar-in">
       <div class="brand">
-        <span class="mark">La Esperanza · Hope</span>
+        <a class="mark" href="/" style="text-decoration:none">La Esperanza · Hope</a>
         <span class="sub" lang="en">Valencia</span>
         <span class="sub" lang="es">Valencia</span>
       </div>
+      <nav class="mainnav" aria-label="Main">
+        <a href="/" class="active" lang="en">Home</a><a href="/" class="active" lang="es">Inicio</a>
+        <a href="/about.html" lang="en">About</a><a href="/about.html" lang="es">Quiénes somos</a>
+      </nav>
       <div class="controls">
         <div class="gt">
           <span class="gt-label" lang="en" hidden>Other languages</span>
