@@ -242,6 +242,9 @@
   .mainnav a.active { color: var(--accent); }
   .people { display: flex; flex-direction: column; gap: 20px; }
   .site[data-lang="es"] .pastor--eva { order: -1; }
+  .videoband { padding-block: clamp(14px, 2.6vw, 26px); }
+  .video-frame { position: relative; padding-top: 56.25%; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 2px 14px rgba(0,0,0,.12); margin-top: 16px; background: #000; }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .pastor { display: grid; grid-template-columns: 160px 1fr; gap: 26px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px 24px; }
   .pastor .portrait { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; background: var(--bg); border: 1px solid var(--line); display: block; }
   .pastor .portrait.placeholder { display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-size: 3rem; color: var(--muted); }
@@ -295,6 +298,16 @@
         <p class="lede" lang="en">The people called to serve and shepherd this bilingual community in Valencia.</p>
         <p class="lede" lang="es">Las personas llamadas a servir y pastorear esta comunidad bilingüe en Valencia.</p>
         <div class="tricolour"></div>
+      </div>
+    </section>
+
+    <section class="videoband" lang="en">
+      <div class="wrap narrow">
+        <h2>Meet us</h2>
+        <p class="muted" style="margin-top:10px">A two-minute welcome to Hope Protestant Church Valencia — our community, our worship, and a place for you at the table.</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/fTk5GPAMrFI?rel=0" title="Who We Are — Hope Protestant Church Valencia" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
       </div>
     </section>
 
